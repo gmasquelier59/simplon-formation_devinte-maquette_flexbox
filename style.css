@@ -1,0 +1,88 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8em;
+    font-size: 14px;
+
+    /* Flex */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header, aside, div, footer {
+    padding:20px;
+    box-sizing: border-box;
+
+    /* Je prends l'ordre 0 (ce qui est l'ordre par défaut, donc ici la propriété n'est pas nécessaire, c'est pour l'illustration ^^ */
+    order: 0;
+}
+
+header {
+    background-color: #E07A5F;
+    color: #fff;
+    font-weight: bold;
+    /* Je prends 100% de l'axe horizontal */
+    flex-basis: 100%;
+}
+
+aside {
+    /* Je prends 25% de l'axe horizontal */
+    flex-basis: 25%
+}
+
+aside.first {
+    background-color: #3D405B;
+    color: #fff;
+}
+
+aside.second {
+    background-color: #81B29A;
+}
+
+div.content {
+    /* Je prends 50% de l'axe horizontal */
+    flex-basis: 50%;
+}
+
+footer {
+    background-color: #F2CC8F;
+    text-align: center;
+    font-size: 12px;
+
+    /* Je prends 100% de l'axe horizontal */
+    flex-basis: 100%;
+}
+
+/*
+    Pour une résolution d'écran comprise entre 501px et 750px
+    (soit approximativement un affichage sur tablette)
+*/
+@media screen and (min-width: 501px) and (max-width: 750px) {
+    div.content {
+        /* Je prends 100% de l'axe horizontal */
+        flex-basis: 100%;
+    }
+
+    aside {
+        /* Je prends 50% de l'axe horizontal */
+        flex-basis: 50%;
+        /* Je prends l'ordre 1 (soit après les ordres 0) */
+        order: 1;
+    }
+
+    footer {
+        /* Je prends l'ordre 2 (soit après les ordres 0 et 1) */
+        order: 2;
+    }
+}
+
+/*
+    Pour une résolution d'écran comprise entre 0 et 500px
+    (soit approximativement un affichage sur smartphone)
+*/
+@media screen and (max-width: 500px) {
+    div.content, aside, footer {
+        flex-basis: 100%;
+    }
+}
